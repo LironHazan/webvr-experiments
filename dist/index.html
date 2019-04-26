@@ -1,0 +1,17 @@
+<html>
+<head>
+    <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="./components/guitar.component.js"></script>
+</head>
+<body>
+    <a-scene renderer="colorManagement: true;">
+        <a-entity environment="preset: default"></a-entity>
+        <a-entity guitar
+                  light="type: point; color: white; intensity: 2"
+                  animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 2000; to: 0 1 -5; loop: true"
+                  scale="0.2 0.2 0.2"></a-entity>
+    </a-scene>
+<!--<script src="https://aframe.io/aframe-inspector/dist/aframe-inspector.js"></script>-->
+</body>
+</html>
