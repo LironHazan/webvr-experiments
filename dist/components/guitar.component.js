@@ -1,8 +1,13 @@
 
 AFRAME.registerComponent('guitar', {
+    schema: {},
     init: function () {
-        console.log('register guitar component!');
-        this.el.setAttribute('gltf-model', './assets/ElectricGuitar.gltf');
-        this.el.setAttribute('position', '0 1.5 -7" scale="0.2 0.2 0.2');
+        this.el.setAttribute('gltf-model', './assets/guitar/ElectricGuitar.gltf');
+
+        this.el.addEventListener('mousedown', () => {
+            MyAframeApp.observeStore$.sound = './assets/guitar/disco-guitar-notes-2.wav';
+            MyAframeApp.observeStore$.clicks = MyAframeApp.observeStore$.clicks + 1;
+        })
     }
 });
+

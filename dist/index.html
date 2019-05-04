@@ -3,15 +3,30 @@
     <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="./components/guitar.component.js"></script>
+    <script src="./components/drums.component.js"></script>
 </head>
 <body>
     <a-scene renderer="colorManagement: true;">
         <a-entity environment="preset: default"></a-entity>
-        <a-entity guitar
-                  light="type: point; color: white; intensity: 2"
-                  animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 2000; to: 0 1 -5; loop: true"
-                  scale="0.2 0.2 0.2"></a-entity>
+        <a-assets>
+            <audio id="sound"></audio>
+        </a-assets>
+        <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+
+        <a-entity id="score" text="value: Your Score: ;" scale="2 2 1" position="1 2.5 -2"></a-entity>
+        <a-entity id="guitar"
+                  position="2 0 -5"
+                  scale="0.2 0.2 0.2"
+                  visible="">
+        </a-entity>
+        <a-entity id="drums"
+                  position="0 0 -5"
+                  scale="1 1 1"
+                  visible="">
+        </a-entity>
+
     </a-scene>
+    <script src="index.js"></script>
 <!--<script src="https://aframe.io/aframe-inspector/dist/aframe-inspector.js"></script>-->
 </body>
 </html>
