@@ -1,12 +1,13 @@
 function MyAframeApp () {
     console.log('start');
 
-    // set components
-    const guitarEntity = document.querySelector('#guitar');
-    guitarEntity.setAttribute('guitar', '');
+    // // set components
+    // const guitarEntity = document.querySelector('#guitar');
+    // guitarEntity.setAttribute('guitar', '');
+    //
+    // const drumsetEntity = document.querySelector('#drums');
+    // drumsetEntity.setAttribute('drums', '');
 
-    const drumsetEntity = document.querySelector('#drums');
-    drumsetEntity.setAttribute('drums', '');
 
 }
 

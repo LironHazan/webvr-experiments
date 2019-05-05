@@ -2,8 +2,11 @@
 <head>
     <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>
+
     <script src="./components/guitar.component.js"></script>
     <script src="./components/drums.component.js"></script>
+    <script src="./components/keyboard.component.js"></script>
 </head>
 <body>
     <a-scene renderer="colorManagement: true;">
@@ -15,16 +18,26 @@
 
         <a-entity id="score" text="value: Your Score: ;" scale="2 2 1" position="1 2.5 -2"></a-entity>
         <a-entity id="guitar"
-                  position="2 0 -5"
+                  position="2.5 0.09 -5"
                   scale="0.2 0.2 0.2"
-                  visible="">
+                  guitar>
         </a-entity>
+
+        <!--<a-entity position="0 2.25 -15" particle-system="color: #EF0000,#44CC00"></a-entity>-->
+
         <a-entity id="drums"
                   position="0 0 -5"
                   scale="1 1 1"
-                  visible="">
+                  rotation="0 139 0"
+                  drums>
         </a-entity>
-
+        <a-entity id="keyboard"
+                  position="-3 0.7 -5"
+                  scale="0.02 0.02 0.02"
+                  gltf-model="./assets/keyboard/voxel_midi_controller.gltf"
+                  rotation="18.9 46 3"
+                  keyboard>
+        </a-entity>
     </a-scene>
     <script src="index.js"></script>
 <!--<script src="https://aframe.io/aframe-inspector/dist/aframe-inspector.js"></script>-->
