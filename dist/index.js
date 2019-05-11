@@ -1,15 +1,5 @@
-function MyAframeApp () {
-    console.log('start');
+function MyAframeApp () {}
 
-    // // set components
-    // const guitarEntity = document.querySelector('#guitar');
-    // guitarEntity.setAttribute('guitar', '');
-    //
-    // const drumsetEntity = document.querySelector('#drums');
-    // drumsetEntity.setAttribute('drums', '');
-
-
-}
 
 MyAframeApp.soundEntity = document.querySelector('#sound');
 MyAframeApp.textScoreEntity = document.querySelector('#score');
@@ -26,14 +16,12 @@ MyAframeApp.handler = {
 };
 MyAframeApp.observeStore$ = new Proxy(MyAframeApp.store, MyAframeApp.handler);
 
-MyAframeApp.playSound = async (soundEntity) => {
+MyAframeApp.playSound = (soundEntity) => {
     soundEntity.setAttribute('src', MyAframeApp.store.sound);
     return soundEntity.play();
 };
 
-MyAframeApp.updateText = (entity, text) => {
-    return entity.setAttribute('text', text);
-};
+MyAframeApp.updateText = (entity, text) => entity.setAttribute('text', text);
 
 MyAframeApp.onChange = async () => {
     MyAframeApp.updateText(MyAframeApp.textScoreEntity,
