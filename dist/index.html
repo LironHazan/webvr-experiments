@@ -1,5 +1,10 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>
@@ -8,51 +13,39 @@
     <script src="./components/instrument.component.js"></script>
 </head>
 <body>
-    <a-scene renderer="colorManagement: true;">
-        <!--<a-entity environment="preset: default"></a-entity>-->
-        <!--<a-sky src="./assets/background.mp4"></a-sky>-->
-        <a-ocean></a-ocean>
-        <!--<a-assets>-->
-            <!--<audio id="sound"></audio>-->
-        <!--</a-assets>-->
-        <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+<a-scene renderer="colorManagement: true;">
+    <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
 
-        <!--<a-entity id="score" text="value: Your Score: ;" scale="2 2 1" position="1 2.5 -2"></a-entity>-->
+    <a-entity
+            instrument
+            id="guitar"
+            animation="property:scale; to:0 0 0; startEvents:click"
+            sound="src: url(./assets/guitar/guitar.wav); on: click;"
+            gltf-model="./assets/guitar/ElectricGuitar.gltf"
+            position="0 0 -5"
+            scale="0.2 0.2 0.2">
+    </a-entity>
 
-        <a-entity instrument animation="property:scale; to:0 0 0; startEvents:click"
-                  random-position="min: -10 0 -10; max: 10 0 10;">
-            <a-entity id="guitar"
-                      gltf-model="./assets/guitar/ElectricGuitar.gltf"
-                      scale="0.2 0.2 0.2"
-                      sound="src: url(./assets/guitar/disco-guitar-notes-2.wav); on: click">
-            </a-entity>
-        </a-entity>
+    <a-entity id="drums"
+              instrument
+              animation="property:scale; to:0 0 0; startEvents:click"
+              scale="1 1 1"
+              gltf-model="./assets/drums/model.gltf"
+              rotation="0 139 0"
+              position="2.5 0.09 -5"
+              sound="src: url(./assets/drums/drums.wav); on: click">
+    </a-entity>
 
-        <a-entity instrument
-                  animation="property:scale; to:0 0 0; startEvents:click"
-                  random-position="min: -10 0 -10; max: 10 0 10;">
-        <a-entity id="drums"
-                  scale="1 1 1"
-                  gltf-model="./assets/drums/model.gltf"
-                  rotation="0 139 0"
-                  sound="src: url(./assets/drums/drums.wav); on: click">
-        </a-entity>
-        </a-entity>
+    <a-entity id="keyboard"
+              instrument
+              animation="property:scale; to:0 0 0; startEvents:click"
+              position="-3 0.7 -5"
+              scale="0.02 0.02 0.02"
+              gltf-model="./assets/keyboard/voxel_midi_controller.gltf"
+              rotation="18.9 46 3"
+              sound="src: url(/assets/keyboard/noisy-akai-organ-chord.wav); on: click">
+    </a-entity>
 
-        <a-entity instrument
-                  animation="property:scale; to:0 0 0; startEvents:click"
-                  random-position="min: -10 0 -10; max: 10 0 10;">
-        <a-entity id="keyboard"
-                  scale="0.02 0.02 0.02"
-                  gltf-model="./assets/keyboard/voxel_midi_controller.gltf"
-                  rotation="18.9 46 3"
-                  sound="src: url(/assets/keyboard/noisy-akai-organ-chord.wav); on: click">
-        </a-entity>
-        </a-entity>
-
-    </a-scene>
-<!--<script src="https://aframe.io/aframe-inspector/dist/aframe-inspector.js"></script>-->
+</a-scene>
 </body>
 </html>
-
-<!--position="2.5 0.09 -5"-->

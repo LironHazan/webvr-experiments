@@ -1,17 +1,25 @@
+const randomPosition = () => {
+    const randomNumber = () => ~~((Math.random() * 10) -5)
+        .toString();
+    return randomNumber()  + ' ' + 0 + ' ' + randomNumber();
+};
+
 AFRAME.registerComponent('instrument', {
-    schema: {
-    },
+    schema: {},
     init: function () {
-        this.el.addEventListener('mousedown', () => {
-
-          //  this.el.removeAttribute('particle-system');
-          //  this.el.setAttribute('particle-system', 'color: #EFAF00,#000000; maxAge: 2; duration: 0.5; particleCount: 200');
-        });
-
         this.el.addEventListener('animationcomplete', () => {
-            this.el.setAttribute('scale', '1 1 1');
-            this.el.components['random-position'].update();
-        })
+            this.el.setAttribute('position', randomPosition());
+            switch(this.el.id) {
+                case 'guitar':
+                    this.el.setAttribute('scale', '0.2 0.2 0.2');
+                    break;
+                case 'drums':
+                    this.el.setAttribute('scale', '1 1 1 1');
+                    break;
+                case 'keyboard':
+                    this.el.setAttribute('scale', '0.02 0.02 0.02')
+            }
+        });
     }
 });
 
