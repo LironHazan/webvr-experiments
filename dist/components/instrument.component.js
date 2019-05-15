@@ -1,25 +1,19 @@
 const randomPosition = () => {
-    const randomNumber = () => ~~((Math.random() * 10) -5)
-        .toString();
-    return randomNumber()  + ' ' + 0 + ' ' + randomNumber();
+    const randomNumber = (num) => Math.floor((Math.random() * 10) + num);
+    return { x: randomNumber(-5),  y:  0, z: -randomNumber(5) };
 };
+
+var globalScore = 0;
 
 AFRAME.registerComponent('instrument', {
     schema: {},
     init: function () {
+        const { x, y, z } = this.el.getAttribute('scale');
         this.el.addEventListener('animationcomplete', () => {
-            this.el.setAttribute('position', randomPosition());
-            switch(this.el.id) {
-                case 'guitar':
-                    this.el.setAttribute('scale', '0.2 0.2 0.2');
-                    break;
-                case 'drums':
-                    this.el.setAttribute('scale', '1 1 1 1');
-                    break;
-                case 'keyboard':
-                    this.el.setAttribute('scale', '0.02 0.02 0.02')
-            }
+            this.el.setAttribute('scale',  { x, y, z });
+            this.el.setAttribute('position',  randomPosition());
+            globalScore++;
+            document.querySelector('#text').setAttribute('value', globalScore);
         });
     }
 });
-
